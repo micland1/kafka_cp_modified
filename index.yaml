@@ -101,13 +101,13 @@ entries:
       name: cp-kafka-connect
       repository: file://./charts/cp-kafka-connect
       version: 0.1.0
-    - condition: cp-ksql-server.enabled
-      name: cp-ksql-server
-      repository: file://./charts/cp-ksql-server
-      version: 0.1.0
     - condition: cp-control-center.enabled
       name: cp-control-center
       repository: file://./charts/cp-control-center
+      version: 0.1.0
+    - condition: cp-ksql-server.enabled
+      name: cp-ksql-server
+      repository: file://./charts/cp-ksql-server
       version: 0.1.0
     description: A Helm chart for Confluent Platform Community Edition
     digest: e1785abbb11bab05a343ec33772e916c62397f76c41b09424387e6ee90c2ddb7

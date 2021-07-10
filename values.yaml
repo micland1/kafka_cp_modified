@@ -3,7 +3,7 @@
 ## ------------------------------------------------------
 cp-zookeeper:
   enabled: true
-  servers: 3
+  servers: 2
   image: confluentinc/cp-zookeeper
   imageTag: 6.1.0
   ## Optionally specify an array of imagePullSecrets. Secrets must be manually created in the namespace.
@@ -18,10 +18,10 @@ cp-zookeeper:
     ##
     ## Size for Data dir, where ZooKeeper will store the in-memory database snapshots.
     dataDirSize: 10Gi
-    # dataDirStorageClass: ""
+    dataDirStorageClass: "openebs-jiva-default"
     ## Size for data log dir, which is a dedicated log device to be used, and helps avoid competition between logging and snaphots.
     dataLogDirSize: 10Gi
-    # dataLogDirStorageClass: ""
+    dataLogDirStorageClass: "openebs-jiva-default"
     
   # TODO: find correct security context for user in this zk-image  
   securityContext: 
@@ -42,7 +42,7 @@ cp-zookeeper:
 ## ------------------------------------------------------
 cp-kafka:
   enabled: true
-  brokers: 3
+  brokers: 2
   image: confluentinc/cp-enterprise-kafka
   imageTag: 6.1.0
   ## Optionally specify an array of imagePullSecrets. Secrets must be manually created in the namespace.
@@ -52,7 +52,7 @@ cp-kafka:
   heapOptions: "-Xms512M -Xmx512M"
   persistence:
     enabled: true
-    # storageClass: ""
+    storageClass: "openebs-jiva-default"
     size: 5Gi
     disksPerBroker: 1
   resources: {}
